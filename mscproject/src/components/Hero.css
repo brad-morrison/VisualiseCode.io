@@ -1,0 +1,17 @@
+.wrapper {
+    background-color: rgb(104, 118, 136);
+    min-height: 100vh;
+    position: relative;
+}
+
+.hero-items {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
