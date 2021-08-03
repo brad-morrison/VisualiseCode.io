@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-header {
@@ -19,6 +20,7 @@
   margin-top: 10px;
   color: #797979;
   font-size: medium;
+  text-align: left;
 }
 
 .header {
