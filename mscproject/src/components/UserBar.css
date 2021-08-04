@@ -1,0 +1,28 @@
+.userbar-wrapper {
+    padding: 10px 18px 10px 18px;
+    display: flex;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    border-radius: 20px;
+    background-color: white;
+    max-width: 160px;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+}
+
+.user-icon {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.user-text {
+    line-height: 0;
+}
+
+.user-text:hover {
+    color: rgb(24, 194, 224);
+    cursor: pointer;
+}

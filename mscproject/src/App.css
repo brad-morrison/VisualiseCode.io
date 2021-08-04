@@ -10,3 +10,7 @@ body {
   background-color: #282c34;
   min-height: 100vh;
 }
+
+.spacer {
+  height: 2000px;
+}
