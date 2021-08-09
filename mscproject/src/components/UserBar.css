@@ -3,7 +3,7 @@
     display: flex;
     margin: auto;
     position: absolute;
-    top: 0;
+    top: 55px;
     right: 0;
     z-index: 2;
     border-radius: 20px;

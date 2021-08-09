@@ -6,6 +6,7 @@ import Code from '../components/Code'
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Carousel } from 'primereact/carousel';
+import SideMenu from '../components/SideMenu'
 
 const code = `// this is a comment
 moveForwards();
