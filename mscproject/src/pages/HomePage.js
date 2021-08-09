@@ -34,7 +34,7 @@ function HomePage() {
                 <Button label="Submit" icon="pi pi-check" className="p-m-2"/>
             </div>
             <Carousel value={fruit} itemTemplate={itemTemplate}></Carousel>
-            <div className="p-d-flex p-jc-center p-ai-center">
+            <div className="p-d-flex p-jc-center p-ai-center p-flex-column p-flex-md-row">
             <Code code={code} language="javascript" />
             <Code code={code} language="javascript" />
             <Code code={code} language="javascript" />
