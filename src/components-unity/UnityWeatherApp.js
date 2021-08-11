@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Panel } from 'primereact/panel';
 import { Divider } from 'primereact/divider';
@@ -8,11 +8,16 @@ import Code from '../components/Code';
 import './UnityWeatherApp.css';
 
 const weather = new UnityContext({
-    loaderUrl: "unity/weather.loader.js",
-    dataUrl: "unity/weather.data",
-    frameworkUrl: "unity/weather.framework.js",
-    codeUrl: "unity/weather.wasm",
+    loaderUrl: "unity/UnityApps.loader.js",
+    dataUrl: "unity/UnityApps.data",
+    frameworkUrl: "unity/UnityApps.framework.js",
+    codeUrl: "unity/UnityApps.wasm",
   });
+
+function loadScene() {
+  weather.send("Scripts", "SetDestination", 0);
+}
+
 
 function rain() {
     weather.send("TEST", "rain");
@@ -41,14 +46,12 @@ function rain() {
   var dayOn = true;
   var windOn = false;
   var rainOn = false;
-  var stormOn = false;
-
-  
 
 
 function UnityWeatherApp() {
 
     const [userInput, setTitle] = useState('');
+    const [loaded, setLoaded] = useState(false);
 
     function action() {
 
@@ -90,22 +93,32 @@ function UnityWeatherApp() {
         dayOn = false;
       }
 
-      if (userInput == "stormOn()" && stormOn == false)
+      if (userInput == "stormOn()")
       {
         if (windOn == false){ wind(); windOn = true;}
         if (rainOn == false){ rain(); rainOn = true;}
-        stormOn = true;
       }
 
-      if (userInput == "stormOff()" && stormOn == true)
+      if (userInput == "stormOff()")
       {
         if (windOn == true){ wind(); windOn = false;}
         if (rainOn == true){ rain(); rainOn = false;}
-        stormOn = false;
       }
     }
-    
+
+    useEffect(function () {
+      weather.on("loaded", function () {
+        setLoaded(true);
+      });
+    }, []);
+
+    useEffect(() => {
+      loadScene();
+    });
+
     return (
+      
+      
       <div className="p-d-flex p-jc-center p-mb-5">
         <div className="p-d-inline-flex p-flex-column p-flex-md-row p-jc-center card">
             <div className="p-as-center">
@@ -120,8 +133,6 @@ function UnityWeatherApp() {
                 <Panel header="Change the weather..." className="p-p-4">
                 <p>Using the appropriate method names - try to change the weather in the forest scene.</p>
                 <p>!Hint - Remember the ';'!</p>
-                
-                <Divider type="dashed" className=""/>
                 
                 <Code code={code} language="javascript"/>
                 
@@ -138,6 +149,8 @@ function UnityWeatherApp() {
             
         </div>
       </div>
+
+      
         
     )
 }
