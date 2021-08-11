@@ -1,0 +1,9 @@
+$gutter: 1rem;
+
+@import 'node_modules/primeflex/primeflex.scss';
+
+@import 'prismjs/themes/prism-coy.css';
+@import '@fullcalendar/core/main.css';
+@import '@fullcalendar/daygrid/main.css';
+@import '@fullcalendar/timegrid/main.css';
+@import './AppDemo.scss';
