@@ -5,7 +5,6 @@ import { Divider } from 'primereact/divider';
 import { InputText } from 'primereact/inputtext';
 import Unity, { UnityContext } from 'react-unity-webgl';
 import Code from '../components/Code';
-import './UnityWeatherApp.css';
 
 const weather = new UnityContext({
     loaderUrl: "unity/UnityApps.loader.js",

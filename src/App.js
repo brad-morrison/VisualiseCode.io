@@ -46,6 +46,8 @@ import { InputText } from 'primereact/inputtext';
 
 import PrimeReact from 'primereact/api';
 import UnityWeatherApp from './components-unity/UnityWeatherApp';
+import UnityFoodApp from './components-unity/UnityFoodApp';
+import UnityMoveApp from './components-unity/UnityMoveApp';
 import Prism from 'prismjs';
 
 import 'primereact/resources/primereact.min.css';
@@ -536,7 +538,9 @@ const App = (props) => {
             <div className="layout-main">
                 <div className="layout-content">
                     
-                    <UnityWeatherApp />
+                    {/* <UnityWeatherApp /> */}
+                    {/* <UnityFoodApp /> */}
+                    <UnityMoveApp />
 
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/start/documentation" component={Documentation} />
