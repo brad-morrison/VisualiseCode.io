@@ -24,7 +24,7 @@ function UnityMoveApp() {
 
     const [loaded, setLoaded] = useState(false);
     const [userInput, setTitle] = useState('');
-    const [splitstring, setSS] = useState('');
+    const [stringArray, setStringArray] = useState('');
 
     useEffect(function () {
         unityApps.on("loaded", function () {
@@ -53,11 +53,7 @@ function UnityMoveApp() {
     }
 
     function run() {
-        splitString();
-        splitstring.map((cmd) => {
-            unityApps.send("Scripts", "SetList", cmd);
-        });
-        unityApps.send("Scripts", "RunCommands");
+        unityApps.send("SceneManager", "SetList", userInput);
     }
 
     function clear() {
@@ -65,18 +61,20 @@ function UnityMoveApp() {
     }
 
     function splitString() {
-        setSS(userInput.split(" "));
+        setStringArray(userInput.split(" "));
     }
 
     return (
       
       <div className="p-d-flex p-jc-center p-mb-5">
-        <div className="p-d-inline-flex p-flex-column p-flex-md-row p-jc-center card">
+        <div className="p-d-inline-flex p-flex-column p-flex-xl-row p-jc-center card">
             <div className="p-as-center">
                 <Unity unityContext={unityApps} 
                 style={{
                     height: "600px",
-                    width: "950px"
+                    width: "100%",
+                    maxWidth: "1200px",
+                    borderRadius: "15px"
                 }}
                 />
             </div>
