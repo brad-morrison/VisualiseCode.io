@@ -48,6 +48,9 @@ import PrimeReact from 'primereact/api';
 import UnityWeatherApp from './components-unity/UnityWeatherApp';
 import UnityFoodApp from './components-unity/UnityFoodApp';
 import UnityMoveApp from './components-unity/UnityMoveApp';
+import VariablesQuiz from './components/quizzes/VariablesQuiz';
+import { Panel } from 'primereact/panel';
+import Code from './components/Code';
 import Prism from 'prismjs';
 
 import 'primereact/resources/primereact.min.css';
@@ -67,7 +70,7 @@ const App = (props) => {
     const [inputStyle, setInputStyle] = useState('filled');
     const [ripple, setRipple] = useState(false);
     const [rightPanelActive, setRightPanelActive] = useState(false);
-    const [colorScheme, setColorScheme] = useState('light')
+    const [colorScheme, setColorScheme] = useState('dark')
     const [topbarScheme, setTopbarScheme] = useState('light')
     const [menuScheme, setMenuScheme] = useState('light')
     const [themeScheme, setThemeScheme] = useState('light')
@@ -510,7 +513,6 @@ const App = (props) => {
         'p-ripple-disabled': !ripple
     }, 'layout-menu-' + menuScheme + ' layout-topbar-' + topbarScheme);
 
-    
 
     return (
         <div className={layoutClassName} onClick={onDocumentClick}>
@@ -540,8 +542,12 @@ const App = (props) => {
                     
                     {/* <UnityWeatherApp /> */}
                     {/* <UnityFoodApp /> */}
-                    <UnityMoveApp />
+                    {/* <UnityMoveApp /> */}
+                    <VariablesQuiz />
 
+                    
+                    
+                    {/*
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/start/documentation" component={Documentation} />
                     <Route path="/uikit/formlayout" component={FormLayoutDemo} />
@@ -575,6 +581,7 @@ const App = (props) => {
                     <Route path="/pages/invoice" component={Invoice} />
                     <Route path="/pages/empty" component={EmptyPage} />
                     <Route path="/pages/timeline" component={TimelineDemo} />
+                    */}
                 </div>
 
                 <AppFooter />
